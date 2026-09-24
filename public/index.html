@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reply co-pilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <header class="masthead">
+      <h1>Before you hit send</h1>
+      <p class="masthead-sub">
+        Four judgments on your draft, checked while you type.
+      </p>
+    </header>
+
+    <main class="workspace">
+      <section class="document" aria-label="Conversation">
+        <div class="field">
+          <label for="customerMessage">Customer message</label>
+          <textarea id="customerMessage" rows="3" readonly>I was charged twice for my last order and I need this fixed today. This is the second time this has happened.</textarea>
+        </div>
+        <div class="field field-draft">
+          <label for="draftReply">Your draft reply</label>
+          <textarea
+            id="draftReply"
+            rows="9"
+            placeholder="Start typing a reply..."
+          >I'm sorry for the trouble. I'll get you a refund of the duplicate charge by end of day tomorrow.</textarea>
+        </div>
+      </section>
+
+      <aside class="instruments" aria-label="Live evaluation">
+        <div class="gauges">
+          <div class="gauge" id="gauge-tone" data-state="idle">
+            <span class="gauge-label">Tone</span>
+            <span class="gauge-value">Waiting</span>
+          </div>
+          <div class="gauge" id="gauge-commitment" data-state="idle">
+            <span class="gauge-label">Unguaranteed commitment</span>
+            <span class="gauge-value">Waiting</span>
+          </div>
+          <div class="gauge" id="gauge-review" data-state="idle">
+            <span class="gauge-label">Needs manager review</span>
+            <span class="gauge-value">Waiting</span>
+          </div>
+          <div class="gauge" id="gauge-satisfaction" data-state="idle">
+            <span class="gauge-label">Predicted satisfaction</span>
+            <span class="gauge-value">Waiting</span>
+          </div>
+        </div>
+
+        <div class="latency">
+          <div class="latency-readout">
+            <span class="latency-number" id="latency-total">-</span>
+            <span class="latency-label">Round trip</span>
+          </div>
+          <div class="latency-readout latency-readout-secondary">
+            <span class="latency-number" id="latency-model">-</span>
+            <span class="latency-label">Jev response time</span>
+          </div>
+        </div>
+
+        <p class="connection-status" id="connection-status">Connecting</p>
+      </aside>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
